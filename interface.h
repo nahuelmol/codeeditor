@@ -1,14 +1,28 @@
-
-#include <windows.h>
-
 const char g_szClassName[] = "myWindowClass";
 
-// Step 4: the Window Procedure
-LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-    switch(msg)
-    {
+LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
+
+    using std::cout;
+
+    switch(msg){
+        case WM_LBUTTONDOWN:
+            cout << "left button: "<<msg<<"\n";
+        break;
+        case WM_RBUTTONDOWN:
+            cout << "rigth button:"<<msg<<"\n";
+        break;
+        case WM_KEYDOWN:
+            cout << "key: "<<msg<<"\n";
+        break; 
+        case WM_KEYUP:
+            cout << "ket: "<<msg<<"\n";
+        break;
+        case WM_MOUSEMOVE:
+            cout << "moving: "<<msg<<"\n";
+        break;
+
         case WM_CLOSE:
+            cout << "Msg: " << msg << "\n";
             DestroyWindow(hwnd);
         break;
         case WM_DESTROY:
@@ -17,6 +31,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         default:
             return DefWindowProc(hwnd, msg, wParam, lParam);
     }
+
     return 0;
 }
 
@@ -24,6 +39,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine,
     WNDCLASSEX wc;
     HWND hwnd;
     MSG Msg;
+
+    SayHello();
 
     //Step 1: Registering the Window Class
     wc.cbSize        = sizeof(WNDCLASSEX);
@@ -54,8 +71,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine,
         CW_USEDEFAULT, CW_USEDEFAULT, 480, 240,
         NULL, NULL, hInstance, NULL);
 
-    if(hwnd == NULL)
-    {
+    if(hwnd == NULL){
         MessageBox(NULL, "Window Creation Failed!", "Error!",
             MB_ICONEXCLAMATION | MB_OK);
         return 0;
@@ -65,10 +81,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine,
     UpdateWindow(hwnd);
 
     // Step 3: The Message Loop
-    while(GetMessage(&Msg, NULL, 0, 0) > 0)
-    {
+    while(GetMessage(&Msg, NULL, 0, 0) > 0){
         TranslateMessage(&Msg);
         DispatchMessage(&Msg);
     }
+
     return Msg.wParam;
 }
