@@ -3,6 +3,6 @@
 #include <windows.h>
 #include <winuser.h>
 
-#include "main.h"
+#include "main.cpp"
 #include "interface.h"
 

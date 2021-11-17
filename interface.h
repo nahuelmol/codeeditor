@@ -6,16 +6,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 
     switch(msg){
         case WM_LBUTTONDOWN:
-            cout << "left button: "<<msg<<"\n";
+            ClickWithLeft(msg);
         break;
         case WM_RBUTTONDOWN:
-            cout << "rigth button:"<<msg<<"\n";
+            ClickWithRigth(msg);
         break;
         case WM_KEYDOWN:
-            cout << "key: "<<msg<<"\n";
+            JustAKey("down", msg);
         break; 
         case WM_KEYUP:
-            cout << "ket: "<<msg<<"\n";
+            JustAKey("up", msg);
         break;
         case WM_MOUSEMOVE:
             cout << "moving: "<<msg<<"\n";
