@@ -1,7 +1,7 @@
 OUT = out/out
 
-run:
+compile:
 	g++ -I $(CURDIR) -o $(OUT) start.cpp
 
-exe: 
+run: 
 	out/out.exe

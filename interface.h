@@ -40,21 +40,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine,
     HWND hwnd;
     MSG Msg;
 
-    SayHello();
-
-    //Step 1: Registering the Window Class
     wc.cbSize        = sizeof(WNDCLASSEX);
     wc.style         = 0;
     wc.lpfnWndProc   = WndProc;
     wc.cbClsExtra    = 0;
     wc.cbWndExtra    = 0;
     wc.hInstance     = hInstance;
-    wc.hIcon         = LoadIcon(NULL, IDI_APPLICATION);
     wc.hCursor       = LoadCursor(NULL, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
     wc.lpszMenuName  = NULL;
     wc.lpszClassName = g_szClassName;
-    wc.hIconSm       = LoadIcon(NULL, IDI_APPLICATION);
+
+    //wc.hIcon         = LoadIcon(NULL, IDI_APPLICATION);
+    //wc.hIconSm       = LoadIcon(NULL, IDI_APPLICATION);
+
+    wc.lpszMenuName  = MAKEINTRESOURCE(IDR_MYMENU);
+    wc.hIcon  = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_MYICON));
+    wc.hIconSm  = (HICON)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_MYICON), IMAGE_ICON, 16, 16, 0);
 
     if(!RegisterClassEx(&wc)){
         MessageBox(NULL, "Window Registration Failed!", "Error!",

@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include <resource.h>
 #include <windows.h>
 #include <winuser.h>
 
