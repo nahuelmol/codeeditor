@@ -8,3 +8,17 @@ Even some .dll libraries were included for my Makefile script working.
 ```
 GoRc /r resou.rc
 ```
+
+with the .res file created, it should be created an obj file
+
+```
+cvtres /MACHINE:x86 resou.res
+```
+
+Finally, utilize the obj file in our Makefile for the final compiling
+
+```
+OUT = out/out
+compile:
+	g++ -I $(CURDIR) -o $(OUT) resou.obj start.cpp
+```
