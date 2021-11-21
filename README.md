@@ -4,18 +4,19 @@ Here I've utilized the GoRc resource compiler http://www.godevtool.com/ResourceF
 
 Even some .dll libraries were included for my Makefile script working.
 
-## for .res files creation
+### for .res files adding
+First..
 ```
 GoRc /r resou.rc
 ```
 
-with the .res file created, it should be created an obj file
+with the resou.res file created, it should be created a resou.obj file as follows
 
 ```
 cvtres /MACHINE:x86 resou.res
 ```
 
-Finally, utilize the obj file in our Makefile for the final compiling
+Finally, use this obj file in our Makefile for the final compiling
 
 ```
 OUT = out/out
