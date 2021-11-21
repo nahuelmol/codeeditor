@@ -1,3 +1,5 @@
+#include <controllers/MenuControllers.h>
+
 const char g_szClassName[] = "myWindowClass";
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
@@ -17,12 +19,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
         case WM_KEYUP:
             JustAKey("up", msg);
         break;
-        case WM_MOUSEMOVE:
-            cout << "moving: "<<msg<<"\n";
+
+        case WM_COMMAND:
+            cout << "w: "<<wParam<< "\nl:"<< lParam<<"\n";
+            ButtonWriter(wParam);
+            OpenLocalFile(wParam);
         break;
 
         case WM_CLOSE:
-            cout << "Msg: " << msg << "\n";
             DestroyWindow(hwnd);
         break;
         case WM_DESTROY:
@@ -50,9 +54,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine,
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
     wc.lpszMenuName  = NULL;
     wc.lpszClassName = g_szClassName;
-
-    //wc.hIcon         = LoadIcon(NULL, IDI_APPLICATION);
-    //wc.hIconSm       = LoadIcon(NULL, IDI_APPLICATION);
 
     wc.lpszMenuName  = MAKEINTRESOURCE(IDR_MYMENU);
     wc.hIcon  = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_MYICON));

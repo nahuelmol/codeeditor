@@ -2,8 +2,16 @@
 
 IDR_MYMENU MENU
 BEGIN
+
     POPUP "&File"
     BEGIN
+    	MENUITEM "&Open File",		303
+    	MENUITEM "&New FIle", 		304
+    	MENUITEM "&Open recent", 	305
+    	MENUITEM SEPARATOR
+    	MENUITEM "&Save",		306
+    	MENUITEM "&Save As..",	307
+    	MENUITEM SEPARATOR
         MENUITEM "E&xit", ID_FILE_EXIT
     END
 
@@ -12,6 +20,23 @@ BEGIN
         MENUITEM "&Go", ID_STUFF_GO
         MENUITEM "G&o somewhere else", 0, GRAYED
     END
+
+    POPUP "&View"
+    BEGIN
+    	MENUITEM "&Sidebar", 79, GRAYED
+    	MENUITEM "&Console", 69, GRAYED
+    END
+
+    POPUP "&Tools"
+    BEGIN 
+    	MENUITEM "&Add snippet", 89
+    END
+
+    POPUP "&Info"
+	BEGIN
+		MENUITEM "&About codeeditor", 301
+		MENUITEM "&Wiki", 302
+	END
 END
 
 IDI_MYICON ICON "menu_one.ico"
