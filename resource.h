@@ -1,5 +1,11 @@
 #define IDR_MYMENU 101
 #define IDI_MYICON 201
 
+#define IDI_MYTEXT 333
+#define IDD_ABOUT 444
+#define ID_HELP_ABOUT 666
+
+#define IDC_STATIC -1
+
 #define ID_FILE_EXIT 9001
 #define ID_STUFF_GO 9002

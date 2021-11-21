@@ -5,4 +5,5 @@
 	#define ID_FILE_EXIT 9001
 #endif
 
+#include <fstream>
 #include <controllers/MenuControllers.cpp>

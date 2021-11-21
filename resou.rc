@@ -1,10 +1,22 @@
 #include "resource.h"
 
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 239, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "My About Box"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,174,18,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,174,35,50,14
+    GROUPBOX        "About this program...",IDC_STATIC,7,7,225,52
+    CTEXT           "An example program showing how to use Dialog Boxes\r\n\r\nby theForger",
+                    IDC_STATIC,16,18,144,33
+END
+
 IDR_MYMENU MENU
 BEGIN
-
+    
     POPUP "&File"
-    BEGIN
+    {
     	MENUITEM "&Open File",		303
     	MENUITEM "&New FIle", 		304
     	MENUITEM "&Open recent", 	305
@@ -13,30 +25,43 @@ BEGIN
     	MENUITEM "&Save As..",	307
     	MENUITEM SEPARATOR
         MENUITEM "E&xit", ID_FILE_EXIT
-    END
+    }
 
     POPUP "&Stuff"
-    BEGIN
+    {
         MENUITEM "&Go", ID_STUFF_GO
         MENUITEM "G&o somewhere else", 0, GRAYED
-    END
+    }
 
     POPUP "&View"
-    BEGIN
+    {
     	MENUITEM "&Sidebar", 79, GRAYED
     	MENUITEM "&Console", 69, GRAYED
-    END
+    }
 
     POPUP "&Tools"
-    BEGIN 
+    {
     	MENUITEM "&Add snippet", 89
-    END
+
+    	POPUP "&Languages"
+    	{
+    		MENUITEM "&Python",91
+    		MENUITEM "&Javascript",92
+    		MENUITEM "&Go",93
+    	}
+	}
 
     POPUP "&Info"
-	BEGIN
+	{
 		MENUITEM "&About codeeditor", 301
 		MENUITEM "&Wiki", 302
-	END
+	}
+
+	POPUP "&Help"
+	{
+		MENUITEM "&About", ID_HELP_ABOUT
+	}
+	
 END
 
 IDI_MYICON ICON "menu_one.ico"
