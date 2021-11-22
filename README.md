@@ -1,5 +1,7 @@
 ## codeeditor
 
+<img src="https://img.shields.io/github/languages/code-size/nahuelmol/codeeditor"/>
+
 Here I've utilized the GoRc resource compiler http://www.godevtool.com/ResourceFrame.htm directly.
 
 Even some .dll libraries were included for my Makefile script working.
