@@ -2,7 +2,11 @@
 #define IDI_MYICON 201
 
 #define IDI_MYTEXT 333
+
+#define IDD_COMPONENTS 443
 #define IDD_ABOUT 444
+
+#define ID_COMPO_ABOUT 555
 #define ID_HELP_ABOUT 666
 
 #define IDC_STATIC -1

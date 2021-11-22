@@ -1,32 +1,4 @@
-#include <controllers/MenuControllers.h>
-
 const char g_szClassName[] = "myWindowClass";
-
-BOOL CALLBACK AboutDlgProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
-{
-    switch(Message)
-    {
-        case WM_INITDIALOG:
-
-        return TRUE;
-        
-        case WM_COMMAND:
-            switch(LOWORD(wParam))
-            {
-                case IDOK:
-                    EndDialog(hwnd, IDOK);
-                break;
-                case IDCANCEL:
-                    EndDialog(hwnd, IDCANCEL);
-                break;
-            }
-        break;
-
-        default:
-            return FALSE;
-    }
-    return TRUE;
-}
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
 
@@ -70,6 +42,25 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam){
                             MB_OK | MB_ICONINFORMATION);
                     }
                 }
+                break;
+
+                case ID_COMPO_ABOUT:
+                {
+                    int ret = DialogBox(GetModuleHandle(NULL), 
+                        MAKEINTRESOURCE(IDD_COMPONENTS), hwnd, CompoDlgProc);
+                    if(ret == IDOK){
+                        MessageBox(hwnd, "Dialog exited with IDOK.", "Notice",
+                            MB_OK | MB_ICONINFORMATION);
+                    }
+                    else if(ret == IDCANCEL){
+                        MessageBox(hwnd, "Dialog exited with IDCANCEL.", "Notice",
+                            MB_OK | MB_ICONINFORMATION);
+                    }
+                    else if(ret == -1){
+                        MessageBox(hwnd, "Dialog failed!", "Error",
+                            MB_OK | MB_ICONINFORMATION);
+                    }
+                }    
                 break;
             }
         break;

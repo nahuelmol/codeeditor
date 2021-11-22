@@ -12,6 +12,17 @@ BEGIN
                     IDC_STATIC,16,18,144,33
 END
 
+IDD_COMPONENTS DIALOG DISCARDABLE  0, 0, 239, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Components Info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,174,18,50,14
+    GROUPBOX        "About this program...",IDC_STATIC,7,7,225,52
+    CTEXT           "For now, it's not posible to insert new components like sidebar or console",
+                    IDC_STATIC,16,18,144,33
+END
+
 IDR_MYMENU MENU
 BEGIN
     
@@ -37,6 +48,8 @@ BEGIN
     {
     	MENUITEM "&Sidebar", 79, GRAYED
     	MENUITEM "&Console", 69, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Components?", ID_COMPO_ABOUT
     }
 
     POPUP "&Tools"
